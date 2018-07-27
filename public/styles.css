@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    font-family: "Tajawal", sans-serif;
+    text-align: center;
+}
+
+#image-modal {
+    background: white;
+    border-radius: 10px;
+    width: 90%;
+    height: 90%;
+    margin: 20px auto 0 auto;
+    overflow: auto;
+    padding: 25px;
+}
+
+#image-modal img {
+    width: 80%;
+}
+
+#overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.comment {
+    border: 1px solid grey;
+    border-radius: 10px;
+    width: 80%;
+    padding: 15px;
+    margin: 10px auto 10px auto;
+    text-align: left;
+}
+
+.comment p {
+    text-align: left;
+}
+
+.username {
+    font-size: 0.75em;
+    font-style: italic;
+}
+
+.header {
+    padding: 30px;
+}
+
+.board-container {
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img-container {
+    width: 50%;
+    padding: 25px;
+    border: 2px solid grey;
+    border-radius: 10px;
+    margin: 15px;
+}
+
+img {
+    width: 90%;
+    display: block;
+    margin: 5px auto;
+    position: relative;
+}
+
+input {
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 10px auto 10px auto;
+}
+
+button {
+    background-color: white;
+    font-size: 20px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+h1,
+h2 {
+    text-transform: uppercase;
+}

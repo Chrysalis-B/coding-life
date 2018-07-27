@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+    <title>Life at Spiced</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Tajawal" rel="stylesheet">
+    <head profile="http://www.w3.org/2005/10/profile">
+        <link rel="icon"
+        type="image/png"
+        href="/assets/spice.png">
+</head>
+<body>
+    <main>
+        <image-modal v-if="currentImageId" v-bind:id="currentImageId" v-on:close="closeModal"></image-modal>
+        <div class="header">
+            <h1>Life at Spiced</h1>
+        </div>
+        <form>
+            <input v-model="imgFormInfo.title" type="text" placeholder="title">
+            <input v-model="imgFormInfo.description" type="text" placeholder="description">
+            <input v-model="imgFormInfo.username" type="text" placeholder="username">
+            <input v-on:change="selectFile" type="file">
+            <button v-on:click="uploadImage">Upload Image!</button>
+        </form>
+        <div class="board-container" v-if="images.length > 0">
+            <div class="img-container" v-for="image in images">
+                <h2>{{image.title}}</h2>
+                <a v-bind:href="'#' + image.id"><img v-bind:src="image.url"></a>
+                <p>{{image.description}}</p>
+                <p>Uploaded by {{image.username}}</p>
+            </div>
+            <button v-on:click="moreImages">More</button>
+        </div>
+    </main>
+    <script id="image-modal-template" type="text/x-template">
+       <div id="overlay" v-on:click="closeModal">
+           <div id="image-modal" v-on:click.stop>
+               <h2>{{image.title}}</h2>
+               <img v-bind:src="image.url">
+               <p>{{image.description}}</p>
+               <p>Uploaded by {{image.username}}</p>
+               <form>
+                   <textarea v-model="comment" type="text" placeholder="comment"></textarea>
+                   <input v-model="username" type="text" placeholder="username">
+                   <button v-on:click="submitComment">Submit</button>
+               </form>
+               <div class="comments" v-if="comments.length > 0">
+                   <h2>Comments</h2>
+                   <div class="comment" v-for="comment in comments">
+                       <p>{{comment.comment}}</p>
+                       <p class="username">says {{comment.username}}</p>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </script>
+    <script src="/js/vue.js"></script>
+    <script src="/js/axios.min.js"></script>
+    <script src="/js/script.js"></script>
+</body>
+</html>
